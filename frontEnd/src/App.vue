@@ -5,15 +5,21 @@ import Card from 'components/card';
 import List from 'components/list';
 import Text from 'components/text';
 import Message from 'components/message';
-import Button from 'components/button';
+import appButton from 'components/button';
 
 export default {
-    components: { Card, List, Text, Message, Button },
+    components: { Card, List, Text, Message, appButton },
     vuex: {
         actions: actions
     },
     created () {
         this.initData();
+    },
+    methods: {
+      toggleSideAction() {
+        console.log('hi')
+        console.log(this.$store.state.isMin)
+      }
     }
 }
 </script>
@@ -21,9 +27,10 @@ export default {
 <template>
 <div id="app">
     <div class="sidebar">
+        <!--<span @click="toggleSideAction" class="toggleSide fa fa-2x fa-bars"></span>-->
         <card></card>
         <list></list>
-        <button></button>
+        <app-button></app-button>
 
     </div>
     <div class="main">
@@ -33,7 +40,27 @@ export default {
 </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
+@media (max-width: 500px) {
+  .sidebar {
+    width: 100px !important;
+    text-align: center;
+  }
+  .name {
+    margin: 0 !important;
+  }
+  .btn {
+    position: relative !important;
+  }
+}
+.toggleSide {
+  float: right;
+  top: 18px;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+
+}
 #app {
     width: 100%;
     height: 100%;

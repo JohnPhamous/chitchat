@@ -91,19 +91,20 @@ export default {
 
     .self {
         text-align: right;
+        color: white;
 
         .avatar {
             float: right;
             margin: 0 0 0 10px;
         }
         .text {
-            background-color: #b2e281;
+            background-color: #F36869;
 
             &:before {
                 right: inherit;
                 left: 100%;
                 border-right-color: transparent;
-                border-left-color: #b2e281;
+                border-left-color: #F36869;
             }
         }
     }

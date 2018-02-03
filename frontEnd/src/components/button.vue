@@ -1,23 +1,14 @@
 <template>
   <div class="newTag">
 
-    <button v-on:click="show = !show">
-    Toggle
-  </button>
-  <transition name="fade">
-    <p v-if="show">hello</p>
-  </transition>
-
-    <transition name="fade">
-      <div class="newForm" v-if="creatingNewTag">
-        <div class="newForm-background"></div>
-        <div class="form-enter">
-          <input class="newtag-input"  type="text" v-model="newTag" v-focus/>
-          <button class="btn-action" @click="cancelCreate">Cancel</button>
-          <button class="btn-action" @click="createNewTag">#create</button>
-        </div>
+    <div class="newForm" v-if="creatingNewTag">
+      <div class="newForm-background"></div>
+      <div class="form-enter">
+        <input class="newtag-input"  type="text" v-model="newTag" v-focus/>
+        <button class="btn-action" @click="cancelCreate">Cancel</button>
+        <button class="btn-action" @click="createNewTag">#create</button>
       </div>
-    </transition>
+    </div>
 
     <div class="createNewTag">
       <button class="btn" @click="creatingNewTag = true">Create New Tag</button>
@@ -55,8 +46,7 @@ export default {
   data: function() {
     return {
       creatingNewTag: false,
-      newTag: '',
-      show: false
+      newTag: ''
     }
   }
 }

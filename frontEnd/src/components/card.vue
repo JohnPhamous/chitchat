@@ -24,7 +24,7 @@ export default {
         <p class="name">{{user.name}}</p>
     </header>
     <footer>
-        <input class="search" type="text" placeholder="Find a #tag" @keyup="onKeyup | debounce 150">
+        <input class="search" type="text" placeholder="#tag" @keyup="onKeyup | debounce 150">
     </footer>
 </div>
 </template>

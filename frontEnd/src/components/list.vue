@@ -11,6 +11,12 @@ export default {
             },
             currentId: ({ currentSessionId }) => currentSessionId
         }
+    },
+    methods: {
+      generateRGB() {
+        let o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ', 0.55)'
+      }
     }
 };
 </script>
@@ -18,7 +24,11 @@ export default {
 <template>
 <div class="list">
     <ul>
-        <li v-for="item in sessions" :class="{ active: item.id === currentId }" @click="selectSession(item.id)">
+        <li v-for="item in sessions"
+          :class="{ active: item.id === currentId }"
+          @click="selectSession(item.id)"
+          :style="{ backgroundColor: generateRGB() }"
+        >
             <img class="avatar"  width="30" height="30" :alt="item.user.name" :src="item.user.img">
             <p class="name">{{item.user.name}}</p>
         </li>
@@ -27,6 +37,16 @@ export default {
 </template>
 
 <style scoped lang="less">
+@media (max-width: 500px) {
+  .list {
+    overflow: scroll;
+    height: 72% !important;
+  }
+}
+.list {
+  overflow: scroll;
+  height: 85%;
+}
 .list {
     li {
         padding: 12px 15px;

@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const now = new Date();
 const store = new Vuex.Store({
     state: {
+        isMin: false,
         user: {
             name: 'Kangy',
             img: 'https://camo.githubusercontent.com/71a2984595019e4d4641e831f389d4f6f1cf6fb8/687474703a2f2f73776479682e6769746875622e696f2f7175696c742f73616d706c652f7175696c742d30332e706e67'
@@ -52,7 +53,7 @@ const store = new Vuex.Store({
                 messages: []
             }
         ],
-        currentSessionId: 1,
+        currentSessionId: 0,
         filterKey: ''
     },
     mutations: {
