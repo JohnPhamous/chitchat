@@ -12,7 +12,7 @@ export default {
     },
     methods: {
         onKeyup (e) {
-            if (e.ctrlKey && e.keyCode === 13 && this.content.length) {
+            if (e.keyCode === 13 && this.content.length) {
                 this.sendMessage(this.content);
                 this.content = '';
             }
