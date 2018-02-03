@@ -5,9 +5,10 @@ import Card from 'components/card';
 import List from 'components/list';
 import Text from 'components/text';
 import Message from 'components/message';
+import Button from 'components/button';
 
 export default {
-    components: { Card, List, Text, Message },
+    components: { Card, List, Text, Message, Button },
     vuex: {
         actions: actions
     },
@@ -22,6 +23,8 @@ export default {
     <div class="sidebar">
         <card></card>
         <list></list>
+        <button></button>
+
     </div>
     <div class="main">
         <message></message>
@@ -32,9 +35,8 @@ export default {
 
 <style lang="less" scoped>
 #app {
-    margin: 20px auto;
-    width: 80%;
-    height: 95vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     border-radius: 3px;
 
