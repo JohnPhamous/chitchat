@@ -16,18 +16,33 @@ export default {
                 this.sendMessage(this.content);
                 this.content = '';
             }
-        }
+        },
+      send () {
+        this.sendMessage(this.content);
+        this.content = '';
+      }
     }
 };
 </script>
 
 <template>
 <div class="text">
-    <textarea placeholder="Enter a message!" v-model="content" @keyup="onKeyup"></textarea>
+  <button class="send-button" v-if="content.length" @click="send">-></button>
+    <textarea class="userMessage" placeholder="Enter a message!" v-model="content" @keyup="onKeyup"></textarea>
 </div>
 </template>
 
 <style lang="less" scoped>
+.send-button {
+  position: absolute;
+  right: 0px;
+  padding: 25px 25px;
+  height: 100%;
+}
+.userMessage {
+  font-size: 1rem;
+  color: white;
+}
 .text {
     height: 160px;
     border-top: solid 1px #ddd;
