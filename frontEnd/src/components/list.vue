@@ -36,8 +36,11 @@ export default {
 </div>
 </template>
 
-<style scoped lang="less">
+<style scoped lang="less" scoped>
 @media (max-width: 500px) {
+  .name {
+    margin: 0 !important;
+  }
   .list {
     overflow: scroll;
     height: 72% !important;

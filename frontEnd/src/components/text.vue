@@ -27,7 +27,7 @@ export default {
 
 <template>
 <div class="text">
-  <button class="send-button" v-if="content.length" @click="send">-></button>
+  <!--<button class="send-button" v-if="content.length" @click="send">-></button>-->
     <textarea class="userMessage" placeholder="Enter a message!" v-model="content" @keyup="onKeyup"></textarea>
 </div>
 </template>
@@ -42,6 +42,14 @@ export default {
 .userMessage {
   font-size: 1rem;
   color: white;
+  border-radius: 30px;
+  top: 10px;
+}
+
+@media (max-width: 500px) {
+  .text {
+    height: 75px !important;
+  }
 }
 .text {
     height: 160px;
@@ -49,11 +57,13 @@ export default {
 
     textarea {
         padding: 10px;
-        height: 100%;
+        height: 30pt;
         width: 100%;
         border: none;
         outline: none;
         resize: none;
+        background-color: white;
+        color: gray;
     }
 }
 </style>

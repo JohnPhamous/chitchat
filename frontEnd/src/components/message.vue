@@ -41,6 +41,11 @@ export default {
 </template>
 
 <style lang="less" scoped>
+@media (max-width: 500px) {
+  .message {
+    height: ~'calc(100% - 75px)' !important;
+  }
+}
 .message {
     padding: 10px 15px;
     overflow-y: scroll;

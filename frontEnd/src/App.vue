@@ -40,7 +40,7 @@ export default {
 </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 @media (max-width: 500px) {
   .sidebar {
     width: 100px !important;
@@ -86,6 +86,7 @@ export default {
         width: 100%;
         bottom: 0;
         left: 0;
+        padding: 15px 10px;
     }
     .message {
         height: ~'calc(100% - 160px)';

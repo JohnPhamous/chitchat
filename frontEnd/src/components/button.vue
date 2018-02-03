@@ -1,6 +1,5 @@
 <template>
   <div class="newTag">
-
     <div class="newForm" v-if="creatingNewTag">
       <div class="newForm-background"></div>
       <div class="form-enter">
@@ -11,7 +10,7 @@
     </div>
 
     <div class="createNewTag">
-      <button class="btn" @click="creatingNewTag = true">Create New Tag</button>
+      <button class="btn btn-newTag" @click="creatingNewTag = true">Create New Tag</button>
     </div>
   </div>
 </template>
@@ -28,7 +27,7 @@ export default {
         id: id,
         user: {
           name: `#${this.newTag}`,
-          img: '#'
+          img: 'https://sigil.cupcake.io/'
         },
         messages: []
       }
@@ -46,12 +45,20 @@ export default {
   data: function() {
     return {
       creatingNewTag: false,
-      newTag: ''
+      newTag: '',
+      show: false
     }
   }
 }
 </script>
 <style>
+.btn-newTag {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: none;
+}
+.btn {
+  position: relative !important;
+}
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s;
 }
