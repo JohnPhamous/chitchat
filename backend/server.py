@@ -1,17 +1,20 @@
+import petname
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 @app.route('/')
 def main():
     return """Hi! Available routes are: <br>
-            /<location> \n
-            /message/<tag> \n
+            /<location> <br>
+            /message/<tag> <br>
             /message/create/<tag> \n
         """
 
 @app.route('/<location>')
 def init(location):
-    return 'This will return the relevant tags based on location. The location passed in was %s' % location
+    userName = petname.Generate()
+    return 'This will return the relevant tags based on location. The location passed in was {}. The generated username is <strong>{}</strong>'.format(location, userName)
 
 @app.route('/message/<tag>')
 def viewChat(tag):
