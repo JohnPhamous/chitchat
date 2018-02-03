@@ -1,14 +1,23 @@
 <template>
   <div class="newTag">
 
-    <div class="newForm" v-if="creatingNewTag">
-      <div class="newForm-background"></div>
-      <div class="form-enter">
-        <input class="newtag-input"  type="text" v-model="newTag" v-focus/>
-        <button class="btn-action" @click="cancelCreate">Cancel</button>
-        <button class="btn-action" @click="createNewTag">#create</button>
+    <button v-on:click="show = !show">
+    Toggle
+  </button>
+  <transition name="fade">
+    <p v-if="show">hello</p>
+  </transition>
+
+    <transition name="fade">
+      <div class="newForm" v-if="creatingNewTag">
+        <div class="newForm-background"></div>
+        <div class="form-enter">
+          <input class="newtag-input"  type="text" v-model="newTag" v-focus/>
+          <button class="btn-action" @click="cancelCreate">Cancel</button>
+          <button class="btn-action" @click="createNewTag">#create</button>
+        </div>
       </div>
-    </div>
+    </transition>
 
     <div class="createNewTag">
       <button class="btn" @click="creatingNewTag = true">Create New Tag</button>
@@ -46,12 +55,19 @@ export default {
   data: function() {
     return {
       creatingNewTag: false,
-      newTag: ''
+      newTag: '',
+      show: false
     }
   }
 }
 </script>
 <style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 .btn-action {
   padding: 10px 15px;
 }
