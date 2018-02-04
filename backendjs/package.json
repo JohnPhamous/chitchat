@@ -1,13 +1,7 @@
 {
-  "name": "chitchat",
-  "version": "1.0.0",
-  "description": "chatting app",
-  "main": "server.js",
-  "author": "team squad",
-  "license": "MIT",
-  "private": true,
   "dependencies": {
     "express": "^4.16.2",
-    "socket.io": "^2.0.4"
+    "moniker": "^0.1.2",
+    "pusher": "^1.5.1"
   }
 }

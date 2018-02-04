@@ -14,6 +14,10 @@ export default {
     methods: {
         onKeyup (e) {
             if (e.keyCode === 13 && this.content.length) {
+              console.log(this.content)
+              console.log(this.$store.state.user.name)
+              console.log(this.$store.state.currentSessionName)
+
               axios.get(`http://localhost:3000/api/${this.content}/${this.$store.state.user.name}/${this.$store.state.currentSessionName}`)
                 .then(response => {
                   console.log(response.data)
@@ -24,10 +28,6 @@ export default {
                 this.content = '';
             }
         },
-      send() {
-        this.sendMessage(this.content);
-        this.content = '';
-      }
     }
 };
 </script>

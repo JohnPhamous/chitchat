@@ -30,7 +30,7 @@ export default {
           :style="{ backgroundColor: generateRGB() }"
         >
             <img class="avatar"  width="30" height="30" :alt="item.user.name" :src="item.user.img">
-            <p class="name">{{item.user.name}}</p>
+            <p class="name"><strong>#</strong>{{item.user.name}}</p>
         </li>
     </ul>
 </div>

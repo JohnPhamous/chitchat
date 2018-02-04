@@ -15,7 +15,7 @@ const store = new Vuex.Store({
             {
                 id: 1,
                 user: {
-                    name: '#biology',
+                    name: 'bio002',
                     img: 'https://api.adorable.io/avatars/100/biology.png'
                 },
                 messages: [
@@ -23,10 +23,12 @@ const store = new Vuex.Store({
                         content: 'What did yall get for number 1?',
                         date: now,
                         name: 'Flappy',
+                        img: 'https://api.adorable.io/avatars/100/biology.png',
                         abc: 'Hello'
                     }, {
                         content: 'What is the genus for this animal?',
                         date: now,
+                        img: 'https://api.adorable.io/avatars/100/biology.png',
                         name: 'Flappy'
                     }
                 ]
@@ -34,7 +36,7 @@ const store = new Vuex.Store({
             {
                 id: 2,
                 user: {
-                    name: '#business',
+                    name: 'bus001',
                     img: 'https://api.adorable.io/avatars/100/business.png'
                 },
                 messages: []
@@ -42,7 +44,7 @@ const store = new Vuex.Store({
             {
                 id: 3,
                 user: {
-                    name: '#math',
+                    name: 'math031',
                     img: 'https://api.adorable.io/avatars/100/math.png'
                 },
                 messages: []
@@ -50,7 +52,7 @@ const store = new Vuex.Store({
             {
                 id: 4,
                 user: {
-                  name: '#econ',
+                  name: 'econ002',
                   img: 'https://api.adorable.io/avatars/100/econ.png',
                 },
                 messages: []
@@ -69,11 +71,11 @@ const store = new Vuex.Store({
         },
         SEND_MESSAGE ({ sessions, currentSessionId, user }, content) {
             let session = sessions.find(item => item.id === currentSessionId);
-
+            console.log(user.from)
             session.messages.push({
                 content: content,
                 date: new Date(),
-                name: user.name,
+                name: user.from,
             });
         },
         SELECT_SESSION (state, id) {
