@@ -52,7 +52,7 @@ export default {
   }
 }
 .text {
-    height: 160px;
+    height: 70px;
     border-top: solid 1px #ddd;
 
     textarea {

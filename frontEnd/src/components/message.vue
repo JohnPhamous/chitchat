@@ -26,92 +26,97 @@ export default {
 
 <template>
 <div class="message" v-scroll-bottom="session.messages">
-    <ul v-if="session">
+    <ul v-if="session.messages.length > 0">
         <li v-for="item in session.messages">
             <p class="time">
                 <span>{{ item.date | time }}</span>
             </p>
             <div class="main" :class="{ self: item.self }">
+              <div><small class="userName">{{ !item.self ? item.name : $store.state.user.name }}</small></div>
                 <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
                 <div class="text">{{ item.content }}</div>
             </div>
         </li>
     </ul>
+    <span v-else><center><h1>{{ session.user.name }} has no messages</center></span>
 </div>
 </template>
 
 <style lang="less" scoped>
-@media (max-width: 500px) {
-  .message {
-    height: ~'calc(100% - 75px)' !important;
+  .userName {
+    color: gray;
   }
-}
-.message {
-    padding: 10px 15px;
-    overflow-y: scroll;
-
-    li {
-        margin-bottom: 15px;
+  @media (max-width: 500px) {
+    .message {
+      height: ~'calc(100% - 75px)' !important;
     }
-    .time {
-        margin: 7px 0;
-        text-align: center;
+  }
+  .message {
+      padding: 10px 15px;
+      overflow-y: scroll;
 
-        > span {
-            display: inline-block;
-            padding: 0 18px;
-            font-size: 12px;
-            color: #fff;
-            border-radius: 2px;
-            background-color: #dcdcdc;
-        }
-    }
-    .avatar {
-        float: left;
-        margin: 0 10px 0 0;
-        border-radius: 3px;
-    }
-    .text {
-        display: inline-block;
-        position: relative;
-        padding: 0 10px;
-        max-width: ~'calc(100% - 40px)';
-        min-height: 30px;
-        line-height: 2.5;
-        font-size: 12px;
-        text-align: left;
-        word-break: break-all;
-        background-color: #fafafa;
-        border-radius: 4px;
+      li {
+          margin-bottom: 15px;
+      }
+      .time {
+          margin: 7px 0;
+          text-align: center;
 
-        &:before {
-            content: " ";
-            position: absolute;
-            top: 9px;
-            right: 100%;
-            border: 6px solid transparent;
-            border-right-color: #fafafa;
-        }
-    }
+          > span {
+              display: inline-block;
+              padding: 0 18px;
+              font-size: 12px;
+              color: #fff;
+              border-radius: 2px;
+              background-color: #dcdcdc;
+          }
+      }
+      .avatar {
+          float: left;
+          margin: 0 10px 0 0;
+          border-radius: 3px;
+      }
+      .text {
+          display: inline-block;
+          position: relative;
+          padding: 0 10px;
+          max-width: ~'calc(100% - 40px)';
+          min-height: 30px;
+          line-height: 2.5;
+          font-size: 12px;
+          text-align: left;
+          word-break: break-all;
+          background-color: #fafafa;
+          border-radius: 4px;
 
-    .self {
-        text-align: right;
-        color: white;
+          &:before {
+              content: " ";
+              position: absolute;
+              top: 9px;
+              right: 100%;
+              border: 6px solid transparent;
+              border-right-color: #fafafa;
+          }
+      }
 
-        .avatar {
-            float: right;
-            margin: 0 0 0 10px;
-        }
-        .text {
-            background-color: #F36869;
+      .self {
+          text-align: right;
+          color: white;
 
-            &:before {
-                right: inherit;
-                left: 100%;
-                border-right-color: transparent;
-                border-left-color: #F36869;
-            }
-        }
-    }
-}
+          .avatar {
+              float: right;
+              margin: 0 0 0 10px;
+          }
+          .text {
+              background-color: #F36869;
+
+              &:before {
+                  right: inherit;
+                  left: 100%;
+                  border-right-color: transparent;
+                  border-left-color: #F36869;
+              }
+          }
+      }
+  }
 </style>

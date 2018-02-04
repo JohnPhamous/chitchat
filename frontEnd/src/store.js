@@ -20,11 +20,14 @@ const store = new Vuex.Store({
                 },
                 messages: [
                     {
-                        content: 'Lorem pi alpha hello lol',
+                        content: 'What did yall get for number 1?',
                         date: now,
+                        name: 'Flappy',
+                        abc: 'Hello'
                     }, {
-                        content: 'LOL OKAY LETS GO',
-                        date: now
+                        content: 'What is the genus for this animal?',
+                        date: now,
+                        name: 'Flappy'
                     }
                 ]
             },

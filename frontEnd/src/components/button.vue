@@ -55,6 +55,7 @@ export default {
 .btn-newTag {
   background-color: rgba(0, 0, 0, 0.25);
   border: none;
+  color: white;
 }
 .btn {
   position: relative !important;

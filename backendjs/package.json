@@ -1,0 +1,12 @@
+{
+  "name": "chitchat",
+  "version": "1.0.0",
+  "description": "chatting app",
+  "main": "server.js",
+  "author": "team squad",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "socket.io": "^2.0.4"
+  }
+}
