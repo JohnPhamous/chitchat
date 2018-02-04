@@ -15,7 +15,9 @@ export default {
     },
     created () {
         this.initData();
-        axios.get('http://localhost:3000/api/name')
+        let serverName = "http://89a2efc7.ngrok.io"
+        //let serverName = "http://localhost:3000"
+        axios.get(`${serverName}/api/name`)
         .then(response => {
           this.$store.state.user.name = response.data
           console.log(this.$store.state.user.name)

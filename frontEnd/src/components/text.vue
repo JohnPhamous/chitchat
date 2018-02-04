@@ -18,7 +18,11 @@ export default {
               console.log(this.$store.state.user.name)
               console.log(this.$store.state.currentSessionName)
 
-              axios.get(`http://localhost:3000/api/${this.content}/${this.$store.state.user.name}/${this.$store.state.currentSessionName}`)
+              let serverName = "http://89a2efc7.ngrok.io"
+              //let serverName = "http://localhost:3000"
+              axios.get(`${serverName}/api/name`)
+
+              axios.get(`${serverName}/api/${this.content}/${this.$store.state.user.name}/${this.$store.state.currentSessionName}`)
                 .then(response => {
                   console.log(response.data)
                 })

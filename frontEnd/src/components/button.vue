@@ -26,7 +26,7 @@ export default {
       let newTagCreate = {
         id: id,
         user: {
-          name: `#${this.newTag}`,
+          name: `${this.newTag}`,
           img: `https://api.adorable.io/avatars/100/${this.newTag}.png`
         },
         messages: []
