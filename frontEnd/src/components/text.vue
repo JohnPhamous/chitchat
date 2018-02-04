@@ -14,15 +14,13 @@ export default {
     methods: {
         onKeyup (e) {
             if (e.keyCode === 13 && this.content.length) {
-              axios.get(`http://localhost:3000/api/${this.content}/${this.$store.state.user.name}/bio002`)
+              axios.get(`http://localhost:3000/api/${this.content}/${this.$store.state.user.name}/${this.$store.state.currentSessionName}`)
                 .then(response => {
                   console.log(response.data)
                 })
                 .catch(e => {
                   console.log(e)
                 })
-
-                //this.sendMessage(this.content);
                 this.content = '';
             }
         },

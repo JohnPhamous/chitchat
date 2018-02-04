@@ -23,11 +23,16 @@ export default {
         }
     },
     created() {
-        var channel = this.$pusher.subscribe('bio002');
+        let bio002 = this.$pusher.subscribe('bio002');
+        let bus001 = this.$pusher.subscribe('bus001');
+        let math031 = this.$pusher.subscribe('math031');
+        let econ002 = this.$pusher.subscribe('econ002');
+        let compsci = this.$pusher.subscribe('compsci');
+        let hackuci = this.$pusher.subscribe('hackuci');
 
         let context = this
 
-        channel.bind('my-event', function(data) {
+        bio002.bind('bio002', function(data) {
           console.log(data.message);
           console.log(data.from);
           console.log(data.room);
@@ -42,8 +47,91 @@ export default {
             name: data.room,
             img: imgLink
           })
+        });
 
+        bus001.bind('bus001', function(data) {
+          console.log(data.message);
+          console.log(data.from);
+          console.log(data.room);
+          console.log(context.$store.state.currentSessionId)
 
+          let session = context.$store.state.sessions.find(item => item.id === context.$store.state.currentSessionId)
+
+          let imgLink = `https://api.adorable.io/avatars/100/${data.room}.png`
+          session.messages.push({
+            content: data.message,
+            date: new Date(),
+            name: data.room,
+            img: imgLink
+          })
+        });
+
+        math031.bind('math031', function(data) {
+          console.log(data.message);
+          console.log(data.from);
+          console.log(data.room);
+          console.log(context.$store.state.currentSessionId)
+
+          let session = context.$store.state.sessions.find(item => item.id === context.$store.state.currentSessionId)
+
+          let imgLink = `https://api.adorable.io/avatars/100/${data.room}.png`
+          session.messages.push({
+            content: data.message,
+            date: new Date(),
+            name: data.room,
+            img: imgLink
+          })
+        });
+
+        econ002.bind('econ002', function(data) {
+          console.log(data.message);
+          console.log(data.from);
+          console.log(data.room);
+          console.log(context.$store.state.currentSessionId)
+
+          let session = context.$store.state.sessions.find(item => item.id === context.$store.state.currentSessionId)
+
+          let imgLink = `https://api.adorable.io/avatars/100/${data.room}.png`
+          session.messages.push({
+            content: data.message,
+            date: new Date(),
+            name: data.room,
+            img: imgLink
+          })
+        });
+
+        compsci.bind('compsci', function(data) {
+          console.log(data.message);
+          console.log(data.from);
+          console.log(data.room);
+          console.log(context.$store.state.currentSessionId)
+
+          let session = context.$store.state.sessions.find(item => item.id === context.$store.state.currentSessionId)
+
+          let imgLink = `https://api.adorable.io/avatars/100/${data.room}.png`
+          session.messages.push({
+            content: data.message,
+            date: new Date(),
+            name: data.room,
+            img: imgLink
+          })
+        });
+
+        hackuci.bind('hackuci', function(data) {
+          console.log(data.message);
+          console.log(data.from);
+          console.log(data.room);
+          console.log(context.$store.state.currentSessionId)
+
+          let session = context.$store.state.sessions.find(item => item.id === context.$store.state.currentSessionId)
+
+          let imgLink = `https://api.adorable.io/avatars/100/${data.room}.png`
+          session.messages.push({
+            content: data.message,
+            date: new Date(),
+            name: data.room,
+            img: imgLink
+          })
         });
     }
 };

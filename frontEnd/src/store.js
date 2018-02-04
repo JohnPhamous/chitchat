@@ -57,6 +57,7 @@ const store = new Vuex.Store({
             }
         ],
         currentSessionId: 0,
+        currentSessionName: '',
         filterKey: ''
     },
     mutations: {
@@ -77,6 +78,8 @@ const store = new Vuex.Store({
         },
         SELECT_SESSION (state, id) {
             state.currentSessionId = id;
+            let roomName = state.sessions.find(item => item.id == id);
+            state.currentSessionName = roomName.user.name;
         } ,
         SET_FILTER_KEY (state, value) {
             state.filterKey = value;

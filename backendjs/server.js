@@ -1,9 +1,9 @@
-let http = require('http');
+let app = require('express')()
+let http = require('http').Server(app)
 
-let server = http.createServer(function(request, response) {
-  response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<h1>The server is working!</h1>');
-  response.end();
-});
-
-server.listen(8000);
+app.get('/', function(req, res) {
+    res.send('Hi')
+})
+http.listen(3000, function() {
+    console.log('Started server')
+})
