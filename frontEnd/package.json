@@ -7,9 +7,16 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-polyfill": "^6.13.0",
     "babel-runtime": "^6.0.0",
+    "identicon.js": "^2.3.1",
+    "pusher-js": "^4.2.2",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4",
     "vue": "^1.0.0",
+    "vue-pusher": "^0.2.1",
+    "vue-socket.io": "^2.1.1-b",
     "vuex": "^0.8.2"
   },
   "devDependencies": {

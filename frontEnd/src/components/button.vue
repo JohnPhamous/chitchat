@@ -27,7 +27,7 @@ export default {
         id: id,
         user: {
           name: `#${this.newTag}`,
-          img: 'https://sigil.cupcake.io/'
+          img: `https://api.adorable.io/avatars/100/${this.newTag}.png`
         },
         messages: []
       }

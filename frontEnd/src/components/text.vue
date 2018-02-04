@@ -1,5 +1,6 @@
 <script>
 import { actions } from '../store';
+import axios from 'axios'
 
 export default {
     vuex: {
@@ -13,11 +14,19 @@ export default {
     methods: {
         onKeyup (e) {
             if (e.keyCode === 13 && this.content.length) {
-                this.sendMessage(this.content);
+              axios.get(`http://localhost:3000/api/${this.content}/${this.$store.state.user.name}/bio002`)
+                .then(response => {
+                  console.log(response.data)
+                })
+                .catch(e => {
+                  console.log(e)
+                })
+
+                //this.sendMessage(this.content);
                 this.content = '';
             }
         },
-      send () {
+      send() {
         this.sendMessage(this.content);
         this.content = '';
       }
@@ -27,7 +36,6 @@ export default {
 
 <template>
 <div class="text">
-  <!--<button class="send-button" v-if="content.length" @click="send">-></button>-->
     <textarea class="userMessage" placeholder="Enter a message!" v-model="content" @keyup="onKeyup"></textarea>
 </div>
 </template>

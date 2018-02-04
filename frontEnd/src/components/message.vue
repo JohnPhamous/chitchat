@@ -1,4 +1,5 @@
 <script>
+
 export default {
     vuex: {
         getters: {
@@ -20,6 +21,30 @@ export default {
                 this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
             });
         }
+    },
+    created() {
+        var channel = this.$pusher.subscribe('bio002');
+
+        let context = this
+
+        channel.bind('my-event', function(data) {
+          console.log(data.message);
+          console.log(data.from);
+          console.log(data.room);
+          console.log(context.$store.state.currentSessionId)
+
+          let session = context.$store.state.sessions.find(item => item.id === context.$store.state.currentSessionId)
+
+          let imgLink = `https://api.adorable.io/avatars/100/${data.room}.png`
+          session.messages.push({
+            content: data.message,
+            date: new Date(),
+            name: data.room,
+            img: imgLink
+          })
+
+
+        });
     }
 };
 </script>
@@ -31,9 +56,9 @@ export default {
             <p class="time">
                 <span>{{ item.date | time }}</span>
             </p>
-            <div class="main" :class="{ self: item.self }">
+            <div class="main" :class="{ self: item.name == $store.state.user.name }">
               <div><small class="userName">{{ !item.self ? item.name : $store.state.user.name }}</small></div>
-                <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
+                <img class="avatar" width="30" height="30" :src="item.img" />
                 <div class="text">{{ item.content }}</div>
             </div>
         </li>

@@ -6,6 +6,7 @@ import List from 'components/list';
 import Text from 'components/text';
 import Message from 'components/message';
 import appButton from 'components/button';
+import axios from 'axios';
 
 export default {
     components: { Card, List, Text, Message, appButton },
@@ -14,6 +15,16 @@ export default {
     },
     created () {
         this.initData();
+        axios.get('http://localhost:3000/api/name')
+        .then(response => {
+          this.$store.state.user.name = response.data
+          console.log(this.$store.state.user.name)
+          this.$store.state.user.img = `https://api.adorable.io/avatars/100/${this.$store.state.user.name}.png`
+        })
+        .catch(e => {
+          console.log(e)
+        })
+
     },
     methods: {
       toggleSideAction() {

@@ -8,7 +8,7 @@ const store = new Vuex.Store({
     state: {
         isMin: false,
         user: {
-            name: 'Kangy',
+            name: '',
             img: 'https://camo.githubusercontent.com/71a2984595019e4d4641e831f389d4f6f1cf6fb8/687474703a2f2f73776479682e6769746875622e696f2f7175696c742f73616d706c652f7175696c742d30332e706e67'
         },
         sessions: [
@@ -16,7 +16,7 @@ const store = new Vuex.Store({
                 id: 1,
                 user: {
                     name: '#biology',
-                    img: 'http://identicon.net/img/identicon.png'
+                    img: 'https://api.adorable.io/avatars/100/biology.png'
                 },
                 messages: [
                     {
@@ -35,7 +35,7 @@ const store = new Vuex.Store({
                 id: 2,
                 user: {
                     name: '#business',
-                    img: 'https://avatars3.githubusercontent.com/u/3490199?s=88&v=4'
+                    img: 'https://api.adorable.io/avatars/100/business.png'
                 },
                 messages: []
             },
@@ -43,7 +43,7 @@ const store = new Vuex.Store({
                 id: 3,
                 user: {
                     name: '#math',
-                    img: 'https://raw.github.com/hashdog/node-identicon-github/master/examples/images/github.png'
+                    img: 'https://api.adorable.io/avatars/100/math.png'
                 },
                 messages: []
             },
@@ -51,7 +51,7 @@ const store = new Vuex.Store({
                 id: 4,
                 user: {
                   name: '#econ',
-                  img: 'https://camo.githubusercontent.com/f8bb1bcef059d5fc71e96594fc9472a8e776e06c/68747470733a2f2f736967696c2e63757063616b652e696f2f536967696c',
+                  img: 'https://api.adorable.io/avatars/100/econ.png',
                 },
                 messages: []
             }
@@ -66,12 +66,13 @@ const store = new Vuex.Store({
                 state.sessions = JSON.parse(data);
             }
         },
-        SEND_MESSAGE ({ sessions, currentSessionId }, content) {
+        SEND_MESSAGE ({ sessions, currentSessionId, user }, content) {
             let session = sessions.find(item => item.id === currentSessionId);
+
             session.messages.push({
                 content: content,
                 date: new Date(),
-                self: true
+                name: user.name,
             });
         },
         SELECT_SESSION (state, id) {
